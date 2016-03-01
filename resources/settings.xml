@@ -18,6 +18,7 @@
         -->
         <setting label="32039" type="action"    action="RunScript($CWD/lib/viewer.py, downloadreport)" />
         <setting type="sep" />
+        <setting label="32041" type="text"      id="client_key"/>
     </category>
 
 <!-- Plugin settings: Limit section -->

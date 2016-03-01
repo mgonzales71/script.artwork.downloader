@@ -33,6 +33,10 @@ __localize__    = ( sys.modules[ '__main__' ].__localize__ )
 API_KEY = '586118be1ac673f74963cc284d46bd8e'
 API_URL_TV = 'http://webservice.fanart.tv/v3/tv/%s?api_key=%s'
 API_URL_MOVIE = 'http://webservice.fanart.tv/v3/movies/%s?api_key=%s'
+CLIENT_KEY = setting['client_key']
+if CLIENT_KEY:
+    API_URL_TV = API_URL_TV + "&client_key=" + CLIENT_KEY
+    API_URL_MOVIE = API_URL_MOVIE + "&client_key=" + CLIENT_KEY
 
 IMAGE_TYPES_MOVIES = ['clearlogo',
                       'clearart',

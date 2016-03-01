@@ -180,6 +180,10 @@ msgctxt "#32040"
 msgid "-"
 msgstr ""
 
+msgctxt "#32041"
+msgid "Personal API key for fanart.tv"
+msgstr ""
+
 #empty strings from id 32041 to 32050
 #Add-on settings: Limit section id=32051 to 32060
 
