@@ -282,9 +282,9 @@ class Main:
                 currentmedia['id'] in ['','tt0000000','0']):
                 log('No IMDB ID found, trying to search themoviedb.org for matching title.')
                 currentmedia['id'] = tmdb._search_movie(currentmedia['name'],currentmedia['year'])
-            elif (currentmedia['mediatype'] == 'movie' and not
-                  currentmedia['id'] == '' or not
-                  currentmedia['id'].startswith('tt')):
+            elif ((currentmedia['mediatype'] == 'movie') and 
+                  (not currentmedia['id'] == '' or not
+                  currentmedia['id'].startswith('tt'))): 
                 log('No valid ID found, trying to search themoviedb.org for matching title.')
                 currentmedia['id'] = tmdb._search_movie(currentmedia['name'],currentmedia['year'])
             log('Provider ID:       %s' % currentmedia['id'])
