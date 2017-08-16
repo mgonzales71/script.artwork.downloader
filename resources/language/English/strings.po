@@ -184,6 +184,10 @@ msgctxt "#32041"
 msgid "Personal API key for fanart.tv"
 msgstr ""
 
+msgctxt "#32042"
+msgid "Personal API key for themoviedb.org"
+msgstr ""
+
 #empty strings from id 32041 to 32050
 #Add-on settings: Limit section id=32051 to 32060
 
