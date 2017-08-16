@@ -50,7 +50,8 @@ def get():
                'debug_enabled':            __addon__.getSetting("debug_enabled")          == 'true',
                'service_startup':          False,
                'service_enable':           False,
-               'client_key':               __addon__.getSetting("client_key"),
+               'fanart_api_key':           __addon__.getSetting("fanart_api_key"),
+               'tmdb_api_key':             __addon__.getSetting("tmdb_api_key"),
 
                'movie_enable':             __addon__.getSetting("movie_enable")           == 'true',
                'movie_poster':             __addon__.getSetting("movie_poster")           == 'true',
