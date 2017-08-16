@@ -2,7 +2,7 @@
 <addon
     id="script.artwork.downloader"
     name="Artwork Downloader"
-    version="13.1.0"
+    version="13.1.0api"
     provider-name="Martijn"
     >
   <requires>
