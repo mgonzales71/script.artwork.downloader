@@ -18,7 +18,6 @@
 #
 
 #import modules
-import ntpath
 import os
 import xbmc
 import urllib
@@ -60,7 +59,6 @@ def _media_unique(media_type, dbid):
             Medialist.append({'id': item.get('imdbnumber',''),
                               'dbid': item.get('tvshowid',''),
                               'name': item.get('label',''),
-                              'base_name': media_path(item.get('file','')),
                               'path': media_path(item.get('file','')),
                               'seasontotal': season_limit.get('total',''),
                               'seasonstart': season_limit.get('start',''),
@@ -83,7 +81,6 @@ def _media_unique(media_type, dbid):
                               'name': item.get('label',''),
                               'year': item.get('year',''),
                               'file': item.get('file',''),
-                              'base_name': base_name(item.get('file','')),
                               'path': media_path(item.get('file','')),
                               'trailer': item.get('trailer',''),
                               'disctype': disctype,
@@ -104,7 +101,6 @@ def _media_unique(media_type, dbid):
                               'track': item.get('track',''),
                               'runtime': item.get('runtime',''),
                               'year': item.get('year',''),
-                              'base_name': base_name(item.get('file','')),
                               'path': media_path(item.get('file','')),
                               'art' : item.get('art',''),
                               'mediatype': media_type})
@@ -136,13 +132,11 @@ def _media_listing(media_type):
                 Medialist.append({'id': item.get('imdbnumber',''),
                                   'dbid': item.get('tvshowid',''),
                                   'name': item.get('label',''),
-                                  'base_name': media_path(item.get('file','')),
                                   'path': media_path(item.get('file','')),
                                   'seasontotal': season_limit.get('total',''),
                                   'seasonstart': season_limit.get('start',''),
                                   'seasonend': season_limit.get('end',''),
                                   'seasons': seasons_list,
-                                  'disctype': 'n/a',
                                   'art' : item.get('art',''),
                                   'mediatype': media_type})
 
@@ -152,19 +146,13 @@ def _media_listing(media_type):
         jsonobject = simplejson.loads(json_query)
         if jsonobject.has_key('result') and jsonobject['result'].has_key('movies'):
             for item in jsonobject['result']['movies']:
-                imdbnumber = item.get('imdbnumber','')
-                if imdbnumber in ['','tt0000000','0']:
-                    from lib.provider import tmdb # import on behalf of searching when there's no ID
-                    log('No valid ID found, trying to search themoviedb.org for matching title.')
-                    imdbnumber = tmdb._search_movie(item.get('label',''),item.get('year',''))
                 disctype = media_disctype(item.get('file','').encode('utf-8').lower(),
                                           item['streamdetails']['video'])
                 Medialist.append({'dbid': item.get('movieid',''),
-                                  'id': imdbnumber,
+                                  'id': item.get('imdbnumber',''),
                                   'name': item.get('label',''),
                                   'year': item.get('year',''),
                                   'file': item.get('file',''),
-                                  'base_name': base_name(item.get('file','')),
                                   'path': media_path(item.get('file','')),
                                   'trailer': item.get('trailer',''),
                                   'disctype': disctype,
@@ -185,9 +173,7 @@ def _media_listing(media_type):
                                   'track': item.get('track',''),
                                   'runtime': item.get('runtime',''),
                                   'year': item.get('year',''),
-                                  'base_name': base_name(item.get('file','')),
                                   'path': media_path(item.get('file','')),
-                                  'disctype': 'n/a',
                                   'art' : item.get('art',''),
                                   'mediatype': media_type})
     else:
@@ -212,11 +198,6 @@ def media_disctype(filename, streamdetails):
         disctype = 'n/a'
     return disctype
 
-def base_name(base):
-    base = ntpath.basename(base)
-    base = os.path.splitext(base)[0]
-    return base
-    
 def media_path(path):
     # Check for stacked movies
     try:

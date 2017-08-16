@@ -23,6 +23,7 @@ import sys
 #import libraries
 import xml.etree.ElementTree as ET
 from operator import itemgetter
+from lib.language import *
 from lib.script_exceptions import NoFanartError
 from lib.utils import *
 

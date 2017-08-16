@@ -176,10 +176,6 @@ msgctxt "#32040"
 msgid "-"
 msgstr "-"
 
-msgctxt "#32041"
-msgid "Personal API key for fanart.tv"
-msgstr "fanart.tv 的个人 API 密钥"
-
 msgctxt "#32051"
 msgid "Limit Artwork"
 msgstr "限制艺术图片"

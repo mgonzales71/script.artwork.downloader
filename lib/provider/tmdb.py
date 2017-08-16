@@ -22,6 +22,7 @@ import xbmc
 import sys
 
 ### import libraries
+from lib.language import *
 from lib.script_exceptions import NoFanartError
 from lib.utils import *
 from lib.settings import get

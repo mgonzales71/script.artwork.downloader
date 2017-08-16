@@ -21,8 +21,7 @@
 import xbmc
 import xbmcaddon
 import lib.common
-from lib.gui import dialog_msg
-from lib.utils import log
+from lib.utils import dialog_msg, log
 
 ### get addon info
 __addon__        = lib.common.__addon__

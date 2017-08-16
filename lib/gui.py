@@ -26,13 +26,9 @@ from lib.utils import log
 __addonname__    = lib.common.__addonname__
 __addonpath__    = lib.common.__addonpath__
 __localize__     = lib.common.__localize__
-__icon__         = lib.common.__icon__
 
 ### set button actions for GUI
 ACTION_PREVIOUS_MENU = (9, 10, 92, 216, 247, 257, 275, 61467, 61448)
-
-pDialog = xbmcgui.DialogProgress()
-pDialogBG = xbmcgui.DialogProgressBG()
 
 # Define dialogs
 def dialog_msg(action,
@@ -50,74 +46,36 @@ def dialog_msg(action,
     line1 = line1.encode('utf-8', 'ignore')
     line2 = line2.encode('utf-8', 'ignore')
     line3 = line3.encode('utf-8', 'ignore')
+
     # Dialog logic
     if not line0 == '':
         line0 = __addonname__ + line0
     else:
         line0 = __addonname__
     if not background:
-        try:
-            if action == 'create':
-                pDialog.create(__addonname__,
-                               line1,
-                               line2,
-                               line3)
-            elif action == 'update':
-                pDialog.update(percentage,
-                               line1 = "\n",
-                               line2 = "\n",
-                               line3 = "\n")
-                pDialog.update(percentage,
-                               line1,
-                               line2,
-                               line3)
-            elif action == 'close':
-                pDialog.close()
-            elif action == 'iscanceled':
-                if pDialog.iscanceled():
-                    return True
-                else:
-                    return False
-            elif action == 'createBG':
-                pDialogBG.create(heading = __addonname__,
-                                 message = line1)
-            elif action == 'updateBG':
-                pDialogBG.update(percent = percentage,
-                                 heading = __addonname__,
-                                 message = "\n")
-                pDialogBG.update(percent = percentage,
-                                 heading = __addonname__,
-                                 message = line1)
-            elif action == 'closeBG':
-                pDialogBG.close()
-            elif action == 'iscanceledBG':
+        if action == 'create':
+            dialog.create(__addonname__, line1, line2, line3)
+        if action == 'update':
+            dialog.update(percentage, line1, line2, line3)
+        if action == 'close':
+            dialog.close()
+        if action == 'iscanceled':
+            if dialog.iscanceled():
+                return True
+            else:
                 return False
-            elif action == 'okdialog':
-
-                xbmcgui.Dialog().ok(line0,
-                                    line1,
-                                    line2,
-                                    line3)
-            elif action == 'yesno':
-                return xbmcgui.Dialog().yesno(line0,
-                                              line1,
-                                              line2,
-                                              line3,
-                                              nolabel,
-                                              yeslabel)
-        except:
-            pass
-    else:
+        if action == 'okdialog':
+            xbmcgui.Dialog().ok(line0, line1, line2, line3)
+        if action == 'yesno':
+            return xbmcgui.Dialog().yesno(line0, line1, line2, line3, nolabel, yeslabel)
+    if background:
         if (action == 'create' or action == 'okdialog'):
             if line2 == '':
                 msg = line1
             else:
                 msg = line1 + ': ' + line2
-            if not cancelled:
-                xbmcgui.Dialog().notification(line0,
-                                              msg,
-                                              __icon__,
-                                              7500)
+            if cancelled == False:
+                xbmc.executebuiltin("XBMC.Notification(%s, %s, 7500, %s)" % (line0, msg, __icon__))
 
 # Return the selected url to the GUI part
 def choose_image(imagelist):

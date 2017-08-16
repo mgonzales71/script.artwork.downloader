@@ -28,8 +28,7 @@ import lib.common
 
 ### import libraries
 from lib.script_exceptions import *
-from lib.gui import dialog_msg
-from lib.utils import log
+from lib.utils import dialog_msg, log
 from traceback import print_exc
 from urllib2 import HTTPError, URLError
 
@@ -154,9 +153,7 @@ class fileops:
                 
 def cleanup():
     if xbmcvfs.exists(tempdir):
-        dialog_msg('updateBG', percentage = 100,
-                   line1 = __localize__(32005),
-                   background =  __addon__.getSetting('background'))
+        dialog_msg('update', percentage = 100, line1 = __localize__(32005), background =  __addon__.getSetting('background'))
         log('Cleaning up temp files')
         for x in os.listdir(tempdir):
             tempfile = os.path.join(tempdir, x)

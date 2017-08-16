@@ -23,6 +23,7 @@ import urllib
 
 ### import libraries
 #from lib.provider.base import BaseProvider
+from lib.language import *
 from lib.script_exceptions import NoFanartError
 from lib.utils import *
 from lib.settings import get
@@ -72,6 +73,7 @@ class FTV_TVProvider():
         if data == 'Empty' or not data:
             return image_list
         else:
+            # split 'name' and 'data'
             for value in data.iteritems():
                 for art in IMAGE_TYPES_SERIES:
                     if art == value[0]:
