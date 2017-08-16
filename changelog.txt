@@ -1,3 +1,6 @@
+v13.1.0.api
+- Custom API Support Added
+
 v12.0.29
 - Update to fanart.tv API v3
 

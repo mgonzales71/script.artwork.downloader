@@ -181,11 +181,11 @@ msgid "-"
 msgstr ""
 
 msgctxt "#32041"
-msgid "Personal API key for fanart.tv"
+msgid "Project API Key for FanArt.TV"
 msgstr ""
 
 msgctxt "#32042"
-msgid "Personal API key for themoviedb.org"
+msgid "Personal API Key for TheMovieDB.org"
 msgstr ""
 
 #empty strings from id 32041 to 32050
