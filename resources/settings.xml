@@ -18,7 +18,8 @@
         -->
         <setting label="32039" type="action"    action="RunScript($CWD/lib/viewer.py, downloadreport)" />
         <setting type="sep" />
-        <setting label="32041" type="text"      id="client_key"/>
+        <setting label="32041" type="text"      id="fanart_api_key"/>
+        <setting label="32042" type="text"      id="tmdb_api_key"/>
     </category>
 
 <!-- Plugin settings: Limit section -->
