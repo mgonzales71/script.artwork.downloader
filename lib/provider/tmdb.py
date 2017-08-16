@@ -24,14 +24,20 @@ import sys
 ### import libraries
 from lib.script_exceptions import NoFanartError
 from lib.utils import *
+from lib.settings import get
 from operator import itemgetter
 
 ### get addon info
 __localize__    = ( sys.modules[ "__main__" ].__localize__ )
+setting = get()
 
 API_KEY = '4be68d7eab1fbd1b6fd8a3b80a65a95e'
 API_CFG = 'http://api.themoviedb.org/3/configuration?api_key=%s'
 API_URL = 'http://api.themoviedb.org/3/movie/%s/images?api_key=%s'
+TMDB_API_KEY = setting['tmdb_api_key']
+if TMDB_API_KEY:
+    API_CFG = API_CFG + "&tmdb_api_key=" + TMDB_API_KEY
+    API_URL = API_URL + "&tmdb_api_key=" + TMDB_API_KEY
 
 class TMDBProvider():
 
