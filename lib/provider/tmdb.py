@@ -37,6 +37,7 @@ API_CFG = 'http://api.themoviedb.org/3/configuration?api_key=%s'
 API_URL = 'http://api.themoviedb.org/3/movie/%s/images?api_key=%s'
 TMDB_API_KEY = setting['tmdb_api_key']
 if TMDB_API_KEY:
+    API_KEY = TMDB_API_KEY
     API_CFG = API_CFG + "&tmdb_api_key=" + TMDB_API_KEY
     API_URL = API_URL + "&tmdb_api_key=" + TMDB_API_KEY
 
