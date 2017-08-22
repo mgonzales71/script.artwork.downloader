@@ -38,6 +38,7 @@ API_URL_TV = 'http://webservice.fanart.tv/v3/tv/%s?api_key=%s'
 API_URL_MOVIE = 'http://webservice.fanart.tv/v3/movies/%s?api_key=%s'
 FANART_API_KEY = setting['fanart_api_key']
 if FANART_API_KEY:
+    API_KEY = FANART_API_KEY
     API_URL_TV = API_URL_TV + "&fanart_api_key=" + FANART_API_KEY
     API_URL_MOVIE = API_URL_MOVIE + "&fanart_api_key=" + FANART_API_KEY
 
