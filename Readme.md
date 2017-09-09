@@ -5,7 +5,7 @@
 
 **Configure your Custom API Keys in Addon -> Settings**
 
-
+![api settings](https://user-images.githubusercontent.com/6510026/30242843-f3257ef6-9552-11e7-8612-84772090b5c3.png)
 
 This script can automaticly download all available artwork for your movies/tvshows in your library.
 !!Each Movies and TV Show must have it's own subfolder!!
